@@ -8,10 +8,10 @@
       		"https://m.facebook.com/friends/center/friends"
     	],
     	"js": [
+        "vendor/mustache.js",
         "content.js"
       ],
-      "run_at": "document_end",
-
+      "run_at": "document_end"
   	}
   ],
   "browser_action": {

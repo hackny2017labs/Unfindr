@@ -30,13 +30,21 @@ friendList.forEach((element) => {
 document.getElementById('viewport').style.display = "none";
 
 // add in a card
-console.log(friends[0]['imageUrl'].toString())
+var view = {
+  imageUrl: friends[0]['imageUrl'],
+  friendName: friends[0]['friendName']
+};
 var card = 
 	'<div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;">' + 
-  	'<img src=' + friends[0]['imageUrl'].toString() + ' alt="Avatar" style="no-repeat center;background-size:100% 100%;-webkit-background-size:100% 100%;width:68px;height:68px;">' +
+  	'<img src={{imageUrl}} alt="Avatar" style="no-repeat center;background-size:100% 100%;-webkit-background-size:100% 100%;width:68px;height:68px;">' +
   	'<div class="container style=padding: 2px 16px;">' +
-  	'<h4><b>' + friends[0]['friendName'] + '</b></h4>' +
+  	'<h4><b>{{friendName}}</b></h4>' +
    	'<p>Architect & Engineer</p>'+
   	'</div>'+ 
-	'</div>'
-document.body.innerHTML = card;
+	'</div>';
+
+var output = Mustache.render(card, view);
+console.log(output);
+
+
+
